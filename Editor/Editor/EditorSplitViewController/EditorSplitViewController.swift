@@ -17,32 +17,37 @@ public class EditorSplitViewController: NSSplitViewController {
         setupUI()
     }
 
+    public static func instantiate(with document: VODesignDocument) -> EditorSplitViewController {
+        let editorSplitVC = EditorSplitViewController()
+        let sideMenuVC = SideMenuViewController.fromStoryboard()
+        let editorVC = EditorViewController.fromStoryboard()
+
+        editorVC.presenter.document = document
+        editorVC.presenter.editorDelegate = sideMenuVC.presenter
+        sideMenuVC.presenter.sideMenuDelegate = editorVC.presenter
+        editorSplitVC.configure(leftMenu: sideMenuVC, detailsVC: editorVC)
+
+        return editorSplitVC
+    }
+}
+
+
+private extension EditorSplitViewController {
     func configure(leftMenu leftMenuVC: NSViewController, detailsVC: NSViewController) {
-        leftMenuVC.view.widthAnchor.constraint(equalToConstant: Const.sideMenuWidth).isActive = true
-        let sideMenu = NSSplitViewItem(viewController: leftMenuVC)
+        let sideMenu = NSSplitViewItem(contentListWithViewController: leftMenuVC)
         sideMenu.canCollapse = true
-        sideMenu.holdingPriority = .defaultHigh
+        sideMenu.minimumThickness = Const.sideMenuMinWidth
+        sideMenu.maximumThickness = Const.sideMenuMinWidth // TODO: Add possibility to change the side menus width: collapsed<->(minimumThickness...maximumThickness)
+
         addSplitViewItem(sideMenu)
         addSplitViewItem(NSSplitViewItem(viewController: detailsVC))
     }
 
-    private func setupUI() {
+    func setupUI() {
        splitView.dividerStyle = .paneSplitter
     }
 
-    private enum Const {
-        static let sideMenuWidth: CGFloat = 200
-    }
-}
-
-public extension EditorSplitViewController {
-    static func instantiate(with document: VODesignDocument) -> EditorSplitViewController {
-        let editorSplitVC = EditorSplitViewController()
-        let sideMenuVC = SideMenuViewController.fromStoryboard()
-        let editorVC = EditorViewController.fromStoryboard()
-        editorVC.presenter.document = document
-        editorSplitVC.configure(leftMenu: sideMenuVC, detailsVC: editorVC)
-
-        return editorSplitVC
+    enum Const {
+        static let sideMenuMinWidth: CGFloat = 200
     }
 }

@@ -9,9 +9,9 @@ import Cocoa
 import Document
 import CommonUI
 
-public class EditorViewController: NSViewController {
+class EditorViewController: NSViewController {
 
-    public let presenter = EditorPresenter()
+    let presenter = EditorPresenter()
     
     var trackingArea: NSTrackingArea!
     

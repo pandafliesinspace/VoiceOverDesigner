@@ -9,14 +9,50 @@
         <scene sceneID="PEd-7d-5j0">
             <objects>
                 <viewController id="bU7-R8-ocO" customClass="SideMenuViewController" customModule="Editor" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="tOy-S4-hL0">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                    <view key="view" id="tOy-S4-hL0" customClass="SideMenuView" customModule="Editor" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="736"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6c-eg-wFQ">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="736"/>
+                                <clipView key="contentView" id="PTz-bN-idy">
+                                    <rect key="frame" x="1" y="1" width="448" height="734"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView selectable="YES" id="sHc-yI-I8H">
+                                            <rect key="frame" x="0.0" y="0.0" width="448" height="158"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="efA-4J-Ral">
+                                                <size key="itemSize" width="50" height="50"/>
+                                            </collectionViewFlowLayout>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </collectionView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="0Gl-0i-hnQ">
+                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="sZ2-yj-vAs">
+                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Q6c-eg-wFQ" firstAttribute="top" secondItem="tOy-S4-hL0" secondAttribute="top" id="3XF-PZ-LoS"/>
+                            <constraint firstAttribute="trailing" secondItem="Q6c-eg-wFQ" secondAttribute="trailing" id="aFE-eb-VgP"/>
+                            <constraint firstItem="Q6c-eg-wFQ" firstAttribute="leading" secondItem="tOy-S4-hL0" secondAttribute="leading" id="bPA-PL-bs4"/>
+                            <constraint firstAttribute="bottom" secondItem="Q6c-eg-wFQ" secondAttribute="bottom" id="oCh-FC-qcY"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="controlsCollectionView" destination="sHc-yI-I8H" id="PDe-H7-z2u"/>
+                        </connections>
                     </view>
                 </viewController>
                 <customObject id="9uD-mB-xHs" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-64" y="84"/>
+            <point key="canvasLocation" x="-308" y="150"/>
         </scene>
     </scenes>
 </document>

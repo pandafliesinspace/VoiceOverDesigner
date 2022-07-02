@@ -27,6 +27,12 @@
 		3B7F0D842870710400C4FE47 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F0D822870710400C4FE47 /* SideMenuViewController.swift */; };
 		3B7F0D892870715400C4FE47 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7F0D882870715400C4FE47 /* SideMenu.storyboard */; };
 		3B7F0D8A2870715400C4FE47 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7F0D882870715400C4FE47 /* SideMenu.storyboard */; };
+		3B7F0D922870CC2A00C4FE47 /* SideMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F0D912870CC2A00C4FE47 /* SideMenuPresenter.swift */; };
+		3B7F0D932870CC2A00C4FE47 /* SideMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F0D912870CC2A00C4FE47 /* SideMenuPresenter.swift */; };
+		3B7F0D962870D30400C4FE47 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F0D952870D30400C4FE47 /* SideMenuView.swift */; };
+		3B7F0D972870D30400C4FE47 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F0D952870D30400C4FE47 /* SideMenuView.swift */; };
+		3B7F0D9F2870D6C900C4FE47 /* SideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F0D9D2870D6C900C4FE47 /* SideMenuItem.swift */; };
+		3B7F0DA02870D6C900C4FE47 /* SideMenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B7F0D9E2870D6C900C4FE47 /* SideMenuItem.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +75,10 @@
 		3B7F0D7D28706C9B00C4FE47 /* EditorSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorSplitViewController.swift; sourceTree = "<group>"; };
 		3B7F0D822870710400C4FE47 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		3B7F0D882870715400C4FE47 /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
+		3B7F0D912870CC2A00C4FE47 /* SideMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuPresenter.swift; sourceTree = "<group>"; };
+		3B7F0D952870D30400C4FE47 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		3B7F0D9D2870D6C900C4FE47 /* SideMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuItem.swift; sourceTree = "<group>"; };
+		3B7F0D9E2870D6C900C4FE47 /* SideMenuItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuItem.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,10 +167,22 @@
 		3B7F0D81287070EB00C4FE47 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				3B7F0D982870D5FB00C4FE47 /* SideMenuItem */,
 				3B7F0D822870710400C4FE47 /* SideMenuViewController.swift */,
 				3B7F0D882870715400C4FE47 /* SideMenu.storyboard */,
+				3B7F0D912870CC2A00C4FE47 /* SideMenuPresenter.swift */,
+				3B7F0D952870D30400C4FE47 /* SideMenuView.swift */,
 			);
 			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		3B7F0D982870D5FB00C4FE47 /* SideMenuItem */ = {
+			isa = PBXGroup;
+			children = (
+				3B7F0D9D2870D6C900C4FE47 /* SideMenuItem.swift */,
+				3B7F0D9E2870D6C900C4FE47 /* SideMenuItem.xib */,
+			);
+			path = SideMenuItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +286,7 @@
 			files = (
 				3B7F0D892870715400C4FE47 /* SideMenu.storyboard in Resources */,
 				1E579B5428244B3100B13565 /* Editor.storyboard in Resources */,
+				3B7F0DA02870D6C900C4FE47 /* SideMenuItem.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,9 +306,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B7F0D7E28706C9B00C4FE47 /* EditorSplitViewController.swift in Sources */,
+				3B7F0D9F2870D6C900C4FE47 /* SideMenuItem.swift in Sources */,
 				1E579B3628244AF500B13565 /* Editor.docc in Sources */,
+				3B7F0D962870D30400C4FE47 /* SideMenuView.swift in Sources */,
 				1E579B4C28244B0100B13565 /* EditorViewController.swift in Sources */,
 				1E579B5228244B1E00B13565 /* Router.swift in Sources */,
+				3B7F0D922870CC2A00C4FE47 /* SideMenuPresenter.swift in Sources */,
 				3B7F0D832870710400C4FE47 /* SideMenuViewController.swift in Sources */,
 				1E579B4E28244B0900B13565 /* EditorPresenter.swift in Sources */,
 				1EDABBF8283A4AC800D20945 /* EditorView.swift in Sources */,
@@ -296,6 +322,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B7F0D932870CC2A00C4FE47 /* SideMenuPresenter.swift in Sources */,
+				3B7F0D972870D30400C4FE47 /* SideMenuView.swift in Sources */,
 				3B7F0D7F28706C9B00C4FE47 /* EditorSplitViewController.swift in Sources */,
 				3B7F0D842870710400C4FE47 /* SideMenuViewController.swift in Sources */,
 				1E579B5628244B5100B13565 /* EditorPresenterTests.swift in Sources */,

@@ -19,7 +19,11 @@ public class A11yControl: CALayer {
         return textLayer
     }()
 
-    public var a11yDescription: A11yDescription?
+    public var a11yDescription: A11yDescription? {
+        didSet {
+            updateIndexLayerString()
+        }
+    }
     
     public func updateColor() {
         backgroundColor = a11yDescription?.color.cgColor
@@ -51,15 +55,16 @@ public class A11yControl: CALayer {
             indexLayer.foregroundColor = indexLayer.foregroundColor?.copy(alpha: isHiglighted ? 1 : 0.75)
         }
     }
-    
-    public func setIndex(_ newIndex: Int) {
-        indexLayer.string = String(newIndex) // TODO: Index(weight) should be assigned from outside or should be carried by A11yDescription?
-    }
 }
 
 private extension A11yControl {
     func configureIndexLayer() {
         addSublayer(indexLayer)
-        indexLayer.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
+        indexLayer.frame = CGRect(x: 0, y: 0, width: 15, height: 15) // TODO: rework this part. frame is .zero at the very begining and index is jumping
+    }
+
+    func updateIndexLayerString() {
+        guard let index = a11yDescription?.weight else { return }
+        indexLayer.string = String(index)
     }
 }

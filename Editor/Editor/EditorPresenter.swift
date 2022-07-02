@@ -9,12 +9,16 @@ import Document
 import AppKit
 import Settings
 
-public class EditorPresenter {
-    
+protocol EditorDelegate: AnyObject {
+    func didUpdateControls()
+}
+
+class EditorPresenter {
+    weak var editorDelegate: EditorDelegate?
     public var document: VODesignDocument!
     var drawingService: DrawingService!
     var router: RouterProtocol!
-    
+
     func didLoad(ui: NSView, router: RouterProtocol) {
         drawingService = DrawingService(view: ui)
         self.router = router
@@ -32,6 +36,7 @@ public class EditorPresenter {
         }
         
         document.controls = descriptions
+        editorDelegate?.didUpdateControls()
     }
     
     // MARK: Mouse
@@ -76,5 +81,24 @@ extension EditorPresenter: SettingsDelegate {
     public func delete(control: A11yControl) {
         drawingService.delete(control: control)
         save()
+    }
+}
+
+extension EditorPresenter: SideMenuDelegate {
+    var controls: [A11yDescription] {
+        document.controls
+    }
+
+    func didSelectControl(at index: Int) {
+        guard let description = document.controls[nonSafeIndex: index],
+              let control = drawingService.drawnControls.first(where: { $0.a11yDescription === description }) else { return }
+        router.showSettings(for: control, controlSuperview: drawingService.view, delegate: self)
+    }
+}
+
+fileprivate extension Array {
+    subscript(nonSafeIndex index: Int) -> Element? {
+        guard index < count else { return nil }
+        return self[index]
     }
 }

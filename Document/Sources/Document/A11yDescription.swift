@@ -24,7 +24,8 @@ public class A11yDescription: Codable {
         hint: String,
         trait: A11yTraits,
         frame: CGRect,
-        adjustableOptions: AdjustableOptions
+        adjustableOptions: AdjustableOptions,
+        weight: Int = 0
     ) {
         self.isAccessibilityElement = isAccessibilityElement
         self.label = label
@@ -33,6 +34,7 @@ public class A11yDescription: Codable {
         self.trait = trait
         self.frame = frame
         self.adjustableOptions = adjustableOptions
+        self.weight = weight
     }
     
     public var isAccessibilityElement: Bool
@@ -41,6 +43,7 @@ public class A11yDescription: Codable {
     public var hint: String
     public var trait: A11yTraits
     public var frame: CGRect
+    public var weight: Int
     
     // MARK: - Adjustable
     public var adjustableOptions: AdjustableOptions // Not optional because user can input values, disable adjustable, but reenable after time. The app will keep data :-)
@@ -65,7 +68,8 @@ public class A11yDescription: Codable {
             hint: "",
             trait: .none,
             frame: frame,
-            adjustableOptions: AdjustableOptions(options: []))
+            adjustableOptions: AdjustableOptions(options: []),
+            weight: 0)
     }
     
     var isValid: Bool {
@@ -145,5 +149,17 @@ public class A11yDescription: Codable {
         }
         
         return descr.joined()
+    }
+}
+
+extension A11yDescription: Equatable {
+    public static func == (lhs: A11yDescription, rhs: A11yDescription) -> Bool {
+        lhs.isAccessibilityElement == rhs.isAccessibilityElement &&
+        lhs.label == rhs.label &&
+        lhs.value == rhs.label &&
+        lhs.hint == rhs.hint &&
+        lhs.trait == rhs.trait &&
+        lhs.frame == rhs.frame &&
+        lhs.weight == rhs.weight
     }
 }
