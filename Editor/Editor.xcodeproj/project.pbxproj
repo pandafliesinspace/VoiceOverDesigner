@@ -21,6 +21,12 @@
 		1E579B90282454BE00B13565 /* Document in Frameworks */ = {isa = PBXBuildFile; productRef = 1E579B8F282454BE00B13565 /* Document */; };
 		1E579BCA28255FB700B13565 /* CommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E579BC928255FB700B13565 /* CommonUI.framework */; };
 		1EDABBF8283A4AC800D20945 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDABBF7283A4AC800D20945 /* EditorView.swift */; };
+		3B7F0D7E28706C9B00C4FE47 /* EditorSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F0D7D28706C9B00C4FE47 /* EditorSplitViewController.swift */; };
+		3B7F0D7F28706C9B00C4FE47 /* EditorSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F0D7D28706C9B00C4FE47 /* EditorSplitViewController.swift */; };
+		3B7F0D832870710400C4FE47 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F0D822870710400C4FE47 /* SideMenuViewController.swift */; };
+		3B7F0D842870710400C4FE47 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F0D822870710400C4FE47 /* SideMenuViewController.swift */; };
+		3B7F0D892870715400C4FE47 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7F0D882870715400C4FE47 /* SideMenu.storyboard */; };
+		3B7F0D8A2870715400C4FE47 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7F0D882870715400C4FE47 /* SideMenu.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +66,9 @@
 		1E579B8B28244E3E00B13565 /* Settings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Settings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E579BC928255FB700B13565 /* CommonUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EDABBF7283A4AC800D20945 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
+		3B7F0D7D28706C9B00C4FE47 /* EditorSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorSplitViewController.swift; sourceTree = "<group>"; };
+		3B7F0D822870710400C4FE47 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		3B7F0D882870715400C4FE47 /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +116,8 @@
 		1E579B3328244AF500B13565 /* Editor */ = {
 			isa = PBXGroup;
 			children = (
+				3B7F0D81287070EB00C4FE47 /* SideMenu */,
+				3B7F0D7C28706C6F00C4FE47 /* EditorSplitViewController */,
 				1E579B3428244AF500B13565 /* Editor.h */,
 				1E579B4B28244B0100B13565 /* EditorViewController.swift */,
 				1EDABBF7283A4AC800D20945 /* EditorView.swift */,
@@ -133,6 +144,23 @@
 				1E579B8B28244E3E00B13565 /* Settings.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3B7F0D7C28706C6F00C4FE47 /* EditorSplitViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3B7F0D7D28706C9B00C4FE47 /* EditorSplitViewController.swift */,
+			);
+			path = EditorSplitViewController;
+			sourceTree = "<group>";
+		};
+		3B7F0D81287070EB00C4FE47 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				3B7F0D822870710400C4FE47 /* SideMenuViewController.swift */,
+				3B7F0D882870715400C4FE47 /* SideMenu.storyboard */,
+			);
+			path = SideMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B7F0D892870715400C4FE47 /* SideMenu.storyboard in Resources */,
 				1E579B5428244B3100B13565 /* Editor.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +271,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B7F0D8A2870715400C4FE47 /* SideMenu.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,9 +282,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B7F0D7E28706C9B00C4FE47 /* EditorSplitViewController.swift in Sources */,
 				1E579B3628244AF500B13565 /* Editor.docc in Sources */,
 				1E579B4C28244B0100B13565 /* EditorViewController.swift in Sources */,
 				1E579B5228244B1E00B13565 /* Router.swift in Sources */,
+				3B7F0D832870710400C4FE47 /* SideMenuViewController.swift in Sources */,
 				1E579B4E28244B0900B13565 /* EditorPresenter.swift in Sources */,
 				1EDABBF8283A4AC800D20945 /* EditorView.swift in Sources */,
 			);
@@ -264,6 +296,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B7F0D7F28706C9B00C4FE47 /* EditorSplitViewController.swift in Sources */,
+				3B7F0D842870710400C4FE47 /* SideMenuViewController.swift in Sources */,
 				1E579B5628244B5100B13565 /* EditorPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,11 +435,12 @@
 		1E579B4628244AF500B13565 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = P67Q4Q7HA9;
+				DEVELOPMENT_TEAM = Z6JS5P88WU;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -430,11 +465,12 @@
 		1E579B4728244AF500B13565 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = P67Q4Q7HA9;
+				DEVELOPMENT_TEAM = Z6JS5P88WU;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

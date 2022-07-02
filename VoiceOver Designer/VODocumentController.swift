@@ -18,14 +18,14 @@ class VODocumentController: NSDocumentController {
 
 extension VODesignDocument {
     public override func makeWindowControllers() {
-        let controller = EditorViewController.fromStoryboard()
-        controller.presenter.document = self
+
+        let splitVC = EditorSplitViewController.instantiate(with: self)
     
-        let window = NSWindow(contentViewController: controller)
+        let window = NSWindow(contentViewController: splitVC)
         window.setContentSize(NSSize(width: 800, height: 600))
         
         let wc = NSWindowController(window: window)
-        wc.contentViewController = controller
+        wc.contentViewController = splitVC
         addWindowController(wc)
         
         window.setFrameAutosaveName("windowFrame")

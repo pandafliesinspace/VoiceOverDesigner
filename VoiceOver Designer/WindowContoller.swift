@@ -32,11 +32,10 @@ extension WindowContoller: ProjectsRouter {
 //        self.document = document
         document.addWindowController(self)
         
-        let controller = EditorViewController.fromStoryboard()
-        controller.presenter.document = document
+        let splitVC = EditorSplitViewController.instantiate(with: document)
         
         // VODesignDocument(fileName: "Test")
         
-        window?.contentViewController = controller
+        window?.contentViewController = splitVC
     }
 }

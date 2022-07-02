@@ -89,8 +89,8 @@ public class EditorViewController: NSViewController {
     
     func location(from event: NSEvent) -> CGPoint {
         let inWindow = event.locationInWindow
-        let flipped = inWindow.flippendVertical(in: view)
-        let inView = view().backgroundImageView.convert(flipped, from: view)
+        let localPoint = view.convert(inWindow, from: NSApplication.shared.mainWindow?.contentView)
+        let inView = view().backgroundImageView.convert(localPoint, from: view)
         return inView.flippendVertical(in: view().backgroundImageView)
     }
     
