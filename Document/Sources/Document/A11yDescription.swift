@@ -151,15 +151,3 @@ public class A11yDescription: Codable {
         return descr.joined()
     }
 }
-
-extension A11yDescription: Equatable {
-    public static func == (lhs: A11yDescription, rhs: A11yDescription) -> Bool {
-        lhs.isAccessibilityElement == rhs.isAccessibilityElement &&
-        lhs.label == rhs.label &&
-        lhs.value == rhs.label &&
-        lhs.hint == rhs.hint &&
-        lhs.trait == rhs.trait &&
-        lhs.frame == rhs.frame &&
-        lhs.weight == rhs.weight
-    }
-}

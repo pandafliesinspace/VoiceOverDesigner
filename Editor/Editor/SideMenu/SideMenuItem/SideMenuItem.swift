@@ -21,7 +21,7 @@ class SideMenuItem: NSCollectionViewItem {
 
     var itemWeight: Int = 0 {
         didSet {
-            weightLabel.stringValue = "\(itemWeight)."
+            weightLabel.stringValue = "\(itemWeight + 1)."
         }
     }
 
