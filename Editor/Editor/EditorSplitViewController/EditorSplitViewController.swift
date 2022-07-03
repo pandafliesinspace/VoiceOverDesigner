@@ -10,7 +10,7 @@ import AppKit
 import Document
 
 public class EditorSplitViewController: NSSplitViewController {
-    
+
     public override func viewDidLoad() {
         super.viewDidLoad()
         

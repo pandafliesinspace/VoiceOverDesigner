@@ -61,7 +61,7 @@ public class A11yDescription: Codable {
         }
     }
     
-    public static func empty(frame: CGRect) -> A11yDescription {
+    public static func empty(frame: CGRect, weight: Int) -> A11yDescription {
         A11yDescription(
             label: "",
             value: "",
@@ -69,7 +69,7 @@ public class A11yDescription: Codable {
             trait: .none,
             frame: frame,
             adjustableOptions: AdjustableOptions(options: []),
-            weight: 0)
+            weight: weight)
     }
     
     var isValid: Bool {

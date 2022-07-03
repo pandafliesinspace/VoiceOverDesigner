@@ -67,7 +67,7 @@ public class DrawingService {
     
     public func startDrawing(coordinate: CGPoint) {
         let control = A11yControl()
-        control.a11yDescription = .empty(frame: .zero)
+        control.a11yDescription = .empty(frame: .zero, weight: drawnControls.count+1)
         control.updateColor()
         drawnControls.append(control)
         
