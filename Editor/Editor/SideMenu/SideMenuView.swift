@@ -11,11 +11,6 @@ import AppKit
 class SideMenuView: NSView {
     @IBOutlet weak var controlsCollectionView: NSCollectionView!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        layer?.backgroundColor = NSColor.red.cgColor
-    }
-
     func onDataUpdate() {
         controlsCollectionView.reloadData()
     }

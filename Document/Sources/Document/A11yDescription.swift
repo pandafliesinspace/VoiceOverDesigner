@@ -8,6 +8,10 @@
 import Foundation
 import CoreGraphics
 
+public extension NSPasteboard.PasteboardType {
+    static let a11yDescriptionPasteboardType = NSPasteboard.PasteboardType("com.akaDuality.Document.A11yDescriptionPasteboardType")
+}
+
 #if canImport(UIKit)
     import UIKit
     public typealias Color = UIColor
@@ -16,7 +20,7 @@ import CoreGraphics
     public typealias Color = NSColor
 #endif
 
-public class A11yDescription: Codable {
+public class A11yDescription: NSObject, Codable {
     public init(
         isAccessibilityElement: Bool = true,
         label: String,
@@ -35,6 +39,19 @@ public class A11yDescription: Codable {
         self.frame = frame
         self.adjustableOptions = adjustableOptions
         self.weight = weight
+    }
+
+    public required convenience init?(pasteboardPropertyList propertyList: Any, ofType type: NSPasteboard.PasteboardType) {
+        guard let data = propertyList as? Data,
+            let description = try? PropertyListDecoder().decode(Self.self, from: data) else { return nil }
+        self.init(isAccessibilityElement: description.isAccessibilityElement,
+                  label: description.label,
+                  value: description.value,
+                  hint: description.hint,
+                  trait: description.trait,
+                  frame: description.frame,
+                  adjustableOptions: description.adjustableOptions,
+                  weight: description.weight)
     }
     
     public var isAccessibilityElement: Bool
@@ -149,5 +166,33 @@ public class A11yDescription: Codable {
         }
         
         return descr.joined()
+    }
+}
+
+extension A11yDescription: NSPasteboardReading {
+
+    public static func readableTypes(for pasteboard: NSPasteboard) -> [NSPasteboard.PasteboardType] {
+        [.a11yDescriptionPasteboardType]
+
+    }
+
+    public static func readingOptions(forType type: NSPasteboard.PasteboardType, pasteboard: NSPasteboard) -> NSPasteboard.ReadingOptions {
+        .asData
+    }
+}
+
+
+extension A11yDescription: NSPasteboardWriting {
+    public func writableTypes(for pasteboard: NSPasteboard) -> [NSPasteboard.PasteboardType] {
+        [.a11yDescriptionPasteboardType]
+    }
+    
+    public func pasteboardPropertyList(forType type: NSPasteboard.PasteboardType) -> Any? {
+        guard type == .a11yDescriptionPasteboardType else { return nil }
+        return try? PropertyListEncoder().encode(self)
+    }
+
+    public func writingOptions(forType type: NSPasteboard.PasteboardType, pasteboard: NSPasteboard) -> NSPasteboard.WritingOptions {
+        .promised
     }
 }

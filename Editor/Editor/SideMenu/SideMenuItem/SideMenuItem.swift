@@ -8,7 +8,7 @@
 import Cocoa
 
 class SideMenuItem: NSCollectionViewItem {
-    static let reuseId = "SideMenuItem"
+    static let reuseId = NSUserInterfaceItemIdentifier(rawValue: "SideMenuItem")
 
     @IBOutlet private weak var weightLabel: NSTextField!
     @IBOutlet private weak var titleLabel: NSTextField!

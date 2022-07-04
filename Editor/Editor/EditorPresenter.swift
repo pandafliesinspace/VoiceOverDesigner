@@ -96,7 +96,7 @@ extension EditorPresenter: SideMenuDelegate {
     }
 }
 
-fileprivate extension Array {
+public extension Array {
     subscript(nonSafeIndex index: Int) -> Element? {
         guard index < count else { return nil }
         return self[index]
